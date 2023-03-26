@@ -92,12 +92,23 @@ class SinglyLinkedList {
 
 		return current;
 	}
+
+	set(index, val) {
+		let foundNode = this.get(index);
+
+		if (foundNode) {
+			foundNode.val = val;
+			return true;
+		}
+		return false;
+	}
 }
 
 let list = new SinglyLinkedList();
-list.push('HELLO');
-list.push('GOODBYE');
-list.push('!');
+// list.push('HELLO');
+// list.push('GOODBYE');
+// list.push('!');
+// list.push(':)');
 
 // let first = new Node('Hi');
 // first.next = new Node('there');
