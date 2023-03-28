@@ -170,12 +170,14 @@ class SinglyLinkedList {
 	print() {
 		let arr = [];
 
-		current = this.head;
+		let current = this.head;
 
 		while (current) {
 			arr.push(current.val);
 			current = current.next;
 		}
+
+		return arr;
 	}
 }
 
