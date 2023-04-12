@@ -42,7 +42,7 @@ class Queue {
 
 		this.size--;
 
-		return removedNode;
+		return removedNode.value;
 	}
 }
 
