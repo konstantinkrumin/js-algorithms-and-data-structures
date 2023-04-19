@@ -42,10 +42,54 @@ class BinarySearchTree {
 			}
 		}
 	}
+
+	contains(val) {
+		if (!this.root) {
+			return false;
+		}
+
+		if (val === this.root.value) {
+			return true;
+		}
+
+		let current = this.root;
+
+		while (true) {
+			if (current.value === val) {
+				return true;
+			}
+
+			if (val < current.value) {
+				if (current.left === null) {
+					return false;
+				}
+
+				current = current.left;
+			}
+
+			if (val > current.value) {
+				if (current.right === null) {
+					return false;
+				}
+
+				current = current.right;
+			}
+		}
+	}
 }
 
 let tree = new BinarySearchTree();
 // tree.insert(10)
+// tree.insert(7)
+// tree.insert(12)
+// tree.insert(15)
+// tree.insert(2)
+// tree.insert(3)
+
+// tree.find(3)
+// tree.find(11)
+// tree.find(12)
+// tree.find(10)
 
 // tree.root = new Node(10);
 // tree.root.right = new Node(15);
