@@ -43,7 +43,7 @@ class Stack {
 
 		this.size--;
 
-		return removedNode.value;
+		return removedNode;
 	}
 }
 

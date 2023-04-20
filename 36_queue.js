@@ -42,13 +42,13 @@ class Queue {
 
 		this.size--;
 
-		return removedNode.value;
+		return removedNode;
 	}
 }
 
 const queue = new Queue();
 
-queue.enqueque(1);
-queue.enqueque(2);
-queue.enqueque(3);
-queue.enqueque(4);
+// queue.enqueque(1);
+// queue.enqueque(2);
+// queue.enqueque(3);
+// queue.enqueque(4);
