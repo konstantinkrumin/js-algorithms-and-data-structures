@@ -141,6 +141,27 @@ class BinarySearchTree {
 
 		return visited;
 	}
+
+	depthFirstSearchInOrder() {
+		let visited = [];
+		const current = this.root;
+
+		const traverse = node => {
+			if (node.left) {
+				traverse(node.left);
+			}
+
+			visited.push(node.value);
+
+			if (node.right) {
+				traverse(node.right);
+			}
+		};
+
+		traverse(current);
+
+		return visited;
+	}
 }
 
 let tree = new BinarySearchTree();
