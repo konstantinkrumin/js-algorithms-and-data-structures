@@ -17,25 +17,31 @@ class HashTable {
 	}
 
 	set(key, value) {
-		const index = this._hash(key);
+		let index = this._hash(key);
 
 		if (!this.keyMap[index]) {
 			this.keyMap[index] = [];
-		} else {
-			this.keyMap[index].push([key, value]);
 		}
 
-		return index;
+		this.keyMap[index].push([key, value]);
 	}
 
 	get(key) {
-		const hashedKey = this._hash(key);
+		const index = this._hash(key);
 
-		return this.keyMap[hashedKey].filter(mapKey => mapKey === key);
+		if (this.keyMap[index]) {
+			for (let i = 0; i < this.keyMap[index].length; i++) {
+				if (this.keyMap[index][i][0] === key) {
+					return this.keyMap[index][i];
+				}
+			}
+		}
+
+		return undefined;
 	}
 }
 
-const hashTable = new HashTable();
+const hashTable = new HashTable(17);
 
 // hashTable.set('pink', '#FF80ED');
 // hashTable.set('yellow', '#FFD700');
@@ -44,7 +50,7 @@ const hashTable = new HashTable();
 // hashTable.set('gray', '#696969');
 
 // hashTable.get('blue');
-// hashTable.set('turquoise');
+// hashTable.get('turquoise');
 // hashTable.get('yellow');
 // hashTable.get('red');
 // hashTable.get('orange');
