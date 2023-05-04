@@ -32,12 +32,52 @@ class HashTable {
 		if (this.keyMap[index]) {
 			for (let i = 0; i < this.keyMap[index].length; i++) {
 				if (this.keyMap[index][i][0] === key) {
-					return this.keyMap[index][i];
+					return this.keyMap[index][i][1];
 				}
 			}
 		}
 
 		return undefined;
+	}
+
+	keys() {
+		let keysArr = [];
+
+		for (let i = 0; i < this.keyMap.length; i++) {
+			const currCell = this.keyMap[i];
+
+			if (currCell) {
+				for (let j = 0; j < currCell.length; j++) {
+					const currKey = currCell[j][0];
+
+					if (!keysArr.includes(currKey)) {
+						keysArr.push(currKey);
+					}
+				}
+			}
+		}
+
+		return keysArr;
+	}
+
+	values() {
+		let valuesArr = [];
+
+		for (let i = 0; i < this.keyMap.length; i++) {
+			const currCell = this.keyMap[i];
+
+			if (currCell) {
+				for (let j = 0; j < currCell.length; j++) {
+					const currKey = currCell[j][1];
+
+					if (!valuesArr.includes(currKey)) {
+						valuesArr.push(currKey);
+					}
+				}
+			}
+		}
+
+		return valuesArr;
 	}
 }
 
