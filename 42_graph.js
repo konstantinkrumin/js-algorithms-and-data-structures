@@ -24,11 +24,11 @@ class Graph {
 	}
 
 	removeVertex(vertex) {
-		const edges = this.adjacencyList[vertex];
+		const adjacentVertices = this.adjacencyList[vertex];
 
-		for (let i = 0; i < edges.length; i++) {
-			const currEdge = edges[i];
-			this.removeEdge(vertex, currEdge);
+		for (let i = 0; i < adjacentVertices.length; i++) {
+			const adjacentVertex = edges[i];
+			this.removeEdge(vertex, adjacentVertex);
 		}
 
 		delete this.adjacencyList[vertex];
