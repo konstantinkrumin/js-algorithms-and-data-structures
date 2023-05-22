@@ -34,9 +34,8 @@ class Graph {
 		delete this.adjacencyList[vertex];
 	}
 
-	depthFirstTraversal(start) {
+	depthFirstTraversalRecursive(start) {
 		let result = [];
-
 		let visited = {};
 
 		const helper = vertex => {
@@ -57,6 +56,30 @@ class Graph {
 		};
 
 		helper(start);
+
+		return result;
+	}
+
+	depthFirstTraversalIterative(start) {
+		let stack = [start];
+		let result = [];
+		let visited = {};
+
+		let currentVertex;
+
+		visited[start] = true;
+
+		while (stack.length) {
+			currentVertex = stack.pop();
+			result.push(currentVertex);
+
+			this.adjacencyList[currentVertex].forEach(neighbor => {
+				if (!visited[neighbor]) {
+					visited[neighbor] = true;
+					stack.push(neighbor);
+				}
+			});
+		}
 
 		return result;
 	}
